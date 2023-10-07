@@ -10,14 +10,14 @@
 }
 
 @font-face {
-  font-family: "BMW Text";
+  font-family: "BMW Text", sans-serif;
   src: url("../assets/font/BMWTypeNextLatin-Light.otf")
     format("truetype");
 }
 
 body {
   font-weight: 100;
-  font-family: "BMW Text";
+  font-family: "BMW Text", sans-serif;
   transition: 1s;
 }
 
@@ -114,7 +114,7 @@ header h4 {
   color: black;
   font-size: 0.8rem;
   font-weight: 100;
-  font-family: "BMW Text";
+  font-family: "BMW Text", sans-serif;
 }
 
 header .navbar a:hover {
@@ -131,12 +131,12 @@ header .navbar a:hover {
   color: var(--bg);
 }
 
-main .hero {
-  min-height: 100vh;
-  background-image: url("../assets/0.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+main img.hero{
+  width: 100%;
+  height: 100vh;
+  margin-bottom: -50px;
+  object-fit: cover;
+  object-position: center top;
 }
 
 main .hero::after {
@@ -163,7 +163,7 @@ main .hero h1 {
   bottom: 80px;
   right: 10px;
   text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
-  font-family: "BMW Text";
+  font-family: "BMW Text", sans-serif;
   font-weight: bold;
 }
 
@@ -181,7 +181,7 @@ main .history {
 main .history .title,
 main .model .title,
 main .inovation-tech .title {
-  font-family: "BMW Text";
+  font-family: "BMW Text", sans-serif;
   font-weight: bold;
   font-size: 3rem;
   text-align: center;
@@ -208,7 +208,7 @@ main .history p.first {
 main .history p.second {
   text-align: justify;
   font-size: 1.6rem;
-  font-family: "BMW Text";
+  font-family: "BMW Text", sans-serif;
 }
 
 main .model {
