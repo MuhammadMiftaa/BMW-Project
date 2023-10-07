@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: "BMW Text";
-  src: url("/WebProgramming/dicodingProject/assets/font/BMWTypeNextLatin-Light.otf")
+  src: url("assets/font/BMWTypeNextLatin-Light.otf")
     format("truetype");
 }
 
@@ -133,7 +133,7 @@ header .navbar a:hover {
 
 main .hero {
   min-height: 100vh;
-  background-image: url("/WebProgramming/dicodingProject/assets/0.jpg");
+  background-image: url("assets/0.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
