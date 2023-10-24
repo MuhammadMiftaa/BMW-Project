@@ -1,3 +1,20 @@
+// NAVSCROLL
+let prevScrollPos = window.pageYOffset;
+const navbarDiv = document.querySelector('header');
+
+window.onscroll = function () {
+    const currentScrollPos = window.pageYOffset;
+    
+    if (prevScrollPos > currentScrollPos) {
+        navbarDiv.style.top = "0";
+    } else {
+        navbarDiv.style.top = "-80px";
+    }
+    
+    prevScrollPos = currentScrollPos;
+};
+// NAVSCROLL
+
 // DARKMODE
 const body = document.body;
 const header = document.querySelector('header');
@@ -7,9 +24,7 @@ const navbarEnd = document.querySelector('.navbar-end h4');
 const navbarEndIcon = document.querySelector('a.darkmode');
 const menuIcon = document.getElementById('menu');
 const historySection = document.querySelector('.history');
-const modelSection = document.querySelector('.model');
-const modelCardTitle = document.querySelectorAll('.model h3');
-const modelCardText = document.querySelectorAll('.model p');
+const sliderimg = document.querySelectorAll('.slider img');
 const inovationTech = document.querySelector('.inovation-tech');
 const inovationCar = document.querySelector('.inovation-car');
 const inovationCar2 = document.querySelector('.inovation-car img');
@@ -46,13 +61,10 @@ document.addEventListener('click', (e) => {
         navbarEndIcon.classList.toggle('dark-mode');
         menuIcon.classList.toggle('dark-mode');
         historySection.classList.toggle('dark-mode');
-        modelSection.classList.toggle('dark-mode');
-        modelCardTitle.forEach((a) => {
-            a.classList.toggle('dark-mode')
-        })
-        modelCardText.forEach((a) => {
-            a.classList.toggle('dark-mode')
-        })
+        sliderimg[0].classList.toggle('dark-mode');
+        sliderimg[1].classList.toggle('dark-mode');
+        sliderimg[2].classList.toggle('dark-mode');
+        sliderimg[3].classList.toggle('dark-mode');
         inovationTech.classList.toggle('dark-mode');
         inovationCar.classList.toggle('dark-mode');
         inovationCar2.classList.toggle('dark-mode');
@@ -66,3 +78,49 @@ document.addEventListener('click', (e) => {
 });
 // DARKMODE
 
+// MODELSLIDER
+const slider = document.querySelector('.slider');
+const images = document.querySelectorAll('.slider img');
+
+let currentIndex = 0;
+let interval;
+
+function startSlide() {
+    interval = setInterval(nextSlide, 2000);
+}
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateSlider();
+}
+
+function updateSlider() {
+    const translateX = -currentIndex * 102;
+    slider.style.transform = `translateX(${translateX}%)`;
+}
+
+startSlide();
+
+slider.addEventListener('mouseenter', () => {
+    clearInterval(interval);
+});
+
+slider.addEventListener('mouseleave', startSlide);
+
+const modalBoxes = document.querySelectorAll('.modal');
+const modalContainer = document.querySelector('.modal-container');
+document.addEventListener('click', function (e) {
+    modalBoxes.forEach(function (modalBox, index) {
+        if (e.target.classList.contains('product-detail') && (e.target.parentElement.classList.contains(index + 1) || e.target.parentElement.parentElement.classList.contains(index + 1))) {
+            modalBox.classList.add('active');
+            e.preventDefault();
+        }
+    });
+    if (e.target.classList.contains('modal') || e.target.classList.contains('x')) {
+        modalBoxes.forEach(function (modalBox) {
+            modalBox.classList.remove('active')
+            e.preventDefault();
+        });
+    }
+})
+// MODELSLIDER
